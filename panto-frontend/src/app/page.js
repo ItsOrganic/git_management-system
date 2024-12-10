@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-const env = require('dotenv').config();
 const url = 'https://panto-backend-production.up.railway.app';
 
 const Login = () => {
