@@ -1,0 +1,61 @@
+/* Dashboard.css */
+
+.dashboard-container {
+  padding: 20px;
+}
+
+.profile-logout-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.logout-link {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #007BFF;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.repository-block {
+  width: calc(100% - 40px); /* Make block smaller by 20px on each side */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 20px; /* Adds space between repositories */
+  margin-left: auto; /* Centers the blocks horizontally */
+  margin-right: auto; /* Centers the blocks horizontally */
+  display: flex;
+  justify-content: space-between; /* Align content on left and right */
+  align-items: center;
+}
+
+.repo-name-container {
+  flex: 1;
+}
+
+.repo-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007BFF;
+  text-decoration: none;
+}
+input[type="checkbox"] {
+  justify-items: center;
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;  
+}
