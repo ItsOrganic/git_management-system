@@ -1,15 +1,15 @@
 package models
 
 type GithubUser struct {
-	Name   string `json:"name" omitempty`
-	Id     int    `json:"id" omitempty`
-	Avatar string `json:"avatar_url" omitempty`
+	Name   string `json:"name"`
+	Id     int    `json:"id"`
+	Avatar string `json:"avatar_url"`
 }
 
 type GitlabUser struct {
-	Name   string `json:"name" omitempty`
-	Id     int    `json:"id" omitempty`
-	Avatar string `json:"avatar_url" omitempty`
+	Name   string `json:"name"`
+	Id     int    `json:"id"`
+	Avatar string `json:"avatar_url"`
 }
 
 type GitlabRepo struct {
@@ -19,7 +19,7 @@ type GitlabRepo struct {
 }
 
 type GithubRepo struct {
-	FullName string `json:"full_name" omitempty`
+	FullName string `json:"full_name"`
 	Id       int    `json:"id" omitempty`
 	Review   bool   `json:"review"`
 }
