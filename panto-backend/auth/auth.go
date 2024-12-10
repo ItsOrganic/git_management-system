@@ -28,8 +28,6 @@ var FrontendURL = "https://panto-frontend-production.up.railway.app"
 func init() {
 	clientId := os.Getenv("GITLAB_CLIENT_ID")
 	clientSecret := os.Getenv("GITLAB_CLIENT_SECRET")
-	// redirectURL := os.Getenv("GITLAB_REDIRECT_URL")
-	fmt.Println("HELLLLLLLO", clientId, clientSecret)
 	GitlabOAuthConfig = &oauth2.Config{
 		ClientID:     clientId,
 		ClientSecret: clientSecret,
@@ -74,7 +72,6 @@ func GithubAuthCallback(c *gin.Context) {
 	c.SetCookie("gh-accessToken", token.AccessToken, 3600, "/", "panto-backend-production.up.railway.app", true, true)
 	c.SetCookie("provider", "github", 3600, "/", "panto-backend-production.up.railway.app", true, true)
 	c.Redirect(http.StatusFound, fmt.Sprintf("%s/dashboard", FrontendURL))
-	c.JSON(http.StatusOK, gin.H{"message": "Github authenticated", "accessToken": token.AccessToken})
 }
 
 func GitlabAuthCallback(c *gin.Context) {
@@ -99,13 +96,12 @@ func GitlabAuthCallback(c *gin.Context) {
 		return
 	}
 	if err := json.NewDecoder(resp.Body).Decode(&user); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Faile to decode the user information %s" + err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to decode the user information %s" + err.Error()})
 		return
 	}
 	c.SetCookie("accessToken", token.AccessToken, 3600, "/", "panto-backend-production.up.railway.app", true, true)
 	c.SetCookie("provider", "gitlab", 3600, "/", "panto-backend-production.up.railway.app", true, true)
 	c.Redirect(http.StatusFound, fmt.Sprintf("%s/dashboard", FrontendURL))
-	c.JSON(http.StatusOK, gin.H{"message": "Welcome " + user.Name})
 }
 
 func GetGithubUserDetails(c *gin.Context) {
